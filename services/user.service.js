@@ -40,7 +40,10 @@ const Create = async (data) => {
 
 const FindOneAndUpdate = async (query, data, options = {}) => {
     try{
-        const user = await User.findOneAndUpdate(query, data);
+        const user = await User.findOneAndUpdate(query, data, {
+            new: true,
+            ...options
+        });
         return user;
     }catch(error){
         console.log(`Error: ${error}`);
