@@ -5,7 +5,7 @@ const passport = require('passport');
 const cors = require('cors');
 require('dotenv').config();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 const { db } = require('./config/index');
 const organization = require('./routes/organization.route');
