@@ -229,7 +229,8 @@ const Login = async (req, res, next) => {
 
         return res.status(200).json({
             message: 'User Authentication!',
-            access_token
+            access_token,
+            user
         });
 
     }catch(error){
