@@ -27,7 +27,7 @@ passport.use(new LocalStrategy(
                 return done(null, false);
             }
 
-            const valid = user.password && (bcrypt.compare(password, user.password));
+            const valid = user.password && (await bcrypt.compare(password, user.password));
             if(!valid){
                 return done(null, false);
             }
