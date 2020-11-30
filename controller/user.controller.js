@@ -85,7 +85,8 @@ const AddUser = async (req, res) => {
             email,
             password,
             language,
-            country
+            country,
+            organizations
         } = req.body;
 
         const user = await UserService.FindOne({ email });
@@ -123,7 +124,8 @@ const AddUser = async (req, res) => {
             email,
             password,
             language,
-            country
+            country,
+            organizations
         });
 
         return res.status(200).json({
@@ -144,7 +146,8 @@ const UpdateUser = async (req, res) => {
             email,
             password,
             language,
-            country
+            country,
+            organizations
         } = req.body;
 
         const { user_id } = req.params;
@@ -166,7 +169,8 @@ const UpdateUser = async (req, res) => {
                 email,
                 password,
                 language,
-                country
+                country,
+                organizations
             }
         );
 

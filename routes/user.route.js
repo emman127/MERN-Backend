@@ -6,13 +6,13 @@ require('../passport-config');
 const UserController = require('../controller/user.controller');
 const { isAuthenticated } = require('../utils/middleware');
 
-router.post('/user', UserController.AddUser);
+router.post('/user', isAuthenticated, UserController.AddUser);
 router.get('/users', isAuthenticated, UserController.GetAllUser);
-router.get('/user/:user_id', UserController.GetOneUser);
-router.get('/users/:user_type', UserController.GetUserByUserType);
-router.get('user/:user_id/organizations', UserController.GetOrganizationByUser);
-router.put('/user/:user_id', UserController.UpdateUser);
-router.delete('/user/:user_id', UserController.DeleteUser);
+router.get('/user/:user_id', isAuthenticated, UserController.GetOneUser);
+router.get('/users/:user_type', isAuthenticated, UserController.GetUserByUserType);
+router.get('user/:user_id/organizations', isAuthenticated, UserController.GetOrganizationByUser);
+router.put('/user/:user_id', isAuthenticated, UserController.UpdateUser);
+router.delete('/user/:user_id', isAuthenticated, UserController.DeleteUser);
 
 // router.post('/user/login', UserController.Login);
 router.post('/user/logout', UserController.Logout);
